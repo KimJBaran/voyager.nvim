@@ -1,16 +1,16 @@
 local p = {
 	green = "#698f3f",
-	pink = "#d077ae",
+	pink = "#d07cad",
 	red = "#bc302b", -- FIXME/ISSUE in comments
 	purple = "#4f345a",
 	beige = "#e8d5a3", -- function names
 	white = "#ebfcfb",
 	black = "#121a1e", -- border background
-	yellow = "#c79f4b",
-	blue = "#4b8ccd", -- TODO in comments
-	aqua = "#9deac8", -- struct names etc.
+	yellow = "#ffff4b",
+	blue = "#598cbf", -- TODO in comments
+	aqua = "#b6ead3", -- struct names etc.
 
-	cyan = "#81c7d1", -- menu text and keywords
+	cyan = "#81bec6", -- menu text and keywords
 
 	gray1 = "#303030", -- unknown
 	gray2 = "#4a4a4a", -- progress bar when loading (background)
