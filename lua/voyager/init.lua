@@ -1,31 +1,31 @@
 local p = {
-	green = "#698f3f",
-	pink = "#e99c7f",
-	red = "#bc302b", -- FIXME/ISSUE in comments
+	green = "#84b253", -- 7.1:1
+	pink = "#e1a087", -- 8.03:1
+	red = "#ff7e70", -- 7.33:1 over error bg; 7.1:1 FIXME/ISSUE in comments
 	purple = "#4f345a",
-	beige = "#d1e6bb", -- function names
+	beige = "#d1edb4", -- function names
 	white = "#ebfcfb",
 	black = "#121a1e", -- border background
-	yellow = "#c79f4b",
-	blue = "#598cbf", -- TODO in comments
-	aqua = "#b6e9db", -- struct names etc.
+	yellow = "#ceab5f", -- 7.13:1 over waring bg; 8.06:1 normal
+	blue = "#63abda", -- TODO in comments
+	aqua = "#d6ede4", -- struct names etc.
 
-	cyan = "#a5b0c0", -- menu text and keywords
+	cyan = "#c6cdd7", -- 11:1 menu text and keywords
 
-	gray1 = "#303030", -- unknown
+	gray1 = "#303030", -- unfocused block lines
 	gray2 = "#4a4a4a", -- progress bar when loading (background)
-	gray3 = "#636363", -- dir prefix, UI labels, line numbers, unfocused block lines, analyzer types
-	gray4 = "#7d7d7d", -- rust # symbol
-	gray5 = "#979797", -- operators
-	gray6 = "#b9b9b9", -- struct properties
-	gray7 = "#cacaca", -- border colors, parameters, and variables
+	gray3 = "#a6a6a6", -- 7.23:1 dir prefix, UI labels, line numbers
+	gray4 = "#a6a6a6", -- 7.23:1 rust # symbol, analyzer types
+	gray5 = "#b3b3b3", -- 8.4:1 operators
+	gray6 = "#e5f1eb", -- 15.19:1 struct properties
+	gray7 = "#ededed", -- 15.04:1 border colors, parameters, and variables
 	gray8 = "#e4e4e4", -- unknown
 
 	diffaddbg = "#1a2d27",
 	diffchangebg = "#2e2e40",
 	diffrembg = "#2c0c0c",
 
-	lift = "#15222f", -- unknown
+	lift = "#ff222f", -- unknown
 	stl = "#0c1a28", -- unknown
 
 	errbg = "#18141f",
@@ -148,7 +148,7 @@ function M.load(opts)
 		WinBarNC = { fg = p.gray4 },
 		WinSeparator = { fg = p.gray3, bg = p.black },
 
-		Title = { fg = p.pink },
+		Title = { fg = p.white },
 
 		-- syntax
 		Comment = { fg = p.gray3 }, -- comment symbols ("//") and info highlight
