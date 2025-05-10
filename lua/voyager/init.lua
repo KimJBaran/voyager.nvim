@@ -25,7 +25,7 @@ local p = {
 	diffchangebg = "#2e2e40",
 	diffrembg = "#2c0c0c",
 
-	lift = "#ff222f", -- unknown
+	lift = "#15222f", -- unknown
 	stl = "#0c1a28", -- unknown
 
 	errbg = "#18141f",
