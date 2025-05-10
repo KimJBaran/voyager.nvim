@@ -1,31 +1,31 @@
 local p = {
 	green = "#84b253", -- 7.1:1
-	pink = "#e1a087", -- 8.03:1
+	pink = "#f7aed8", --
 	red = "#ff7e70", -- 7.33:1 over error bg; 7.1:1 FIXME/ISSUE in comments
 	purple = "#4f345a",
-	beige = "#d1edb4", -- function names
+	beige = "#d1f6ab", -- function names
 	white = "#ebfcfb",
 	black = "#121a1e", -- border background
-	yellow = "#ceab5f", -- 7.13:1 over waring bg; 8.06:1 normal
-	blue = "#63abda", -- TODO in comments
+	yellow = "#ffbd2e", -- over waring bg; 8.06:1 normal
+	blue = "#63abda",
 	aqua = "#d6ede4", -- struct names etc.
 
-	cyan = "#c6cdd7", -- 11:1 menu text and keywords
+	cyan = "#96e7b7", -- menu text and keywords
 
 	gray1 = "#303030", -- unfocused block lines
 	gray2 = "#4a4a4a", -- progress bar when loading (background)
-	gray3 = "#a6a6a6", -- 7.23:1 dir prefix, UI labels, line numbers
-	gray4 = "#a6a6a6", -- 7.23:1 rust # symbol, analyzer types
-	gray5 = "#b3b3b3", -- 8.4:1 operators
-	gray6 = "#e5f1eb", -- 15.19:1 struct properties
-	gray7 = "#ededed", -- 15.04:1 border colors, parameters, and variables
+	gray3 = "#b0b0b0", -- dir prefix, UI labels, line numbers
+	gray4 = "#b0b0b0", -- rust # symbol, analyzer types
+	gray5 = "#d2d2d2", -- operators
+	gray6 = "#ecf5f0", -- struct properties
+	gray7 = "#f2f2f2", -- border colors, parameters, and variables
 	gray8 = "#e4e4e4", -- unknown
 
 	diffaddbg = "#1a2d27",
 	diffchangebg = "#2e2e40",
 	diffrembg = "#2c0c0c",
 
-	lift = "#15222f", -- unknown
+	lift = "#182736", -- visual block
 	stl = "#0c1a28", -- unknown
 
 	errbg = "#18141f",
