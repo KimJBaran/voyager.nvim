@@ -1,16 +1,16 @@
 local p = {
-	green = "#84b253", -- 7.1:1
-	pink = "#f7aed8", --
-	red = "#ff7e70", -- 7.33:1 over error bg; 7.1:1 FIXME/ISSUE in comments
+	green = "#84b253",
+	pink = "#f7aea8",
+	red = "#ff7e70", -- FIXME/ISSUE in comments
 	purple = "#4f345a",
 	beige = "#d1f6ab", -- function names
 	white = "#ebfcfb",
 	black = "#121a1e", -- border background
-	yellow = "#ffbd2e", -- over waring bg; 8.06:1 normal
+	yellow = "#ffbd2e", -- over waring bg
 	blue = "#63abda",
 	aqua = "#d6ede4", -- struct names etc.
 
-	cyan = "#96e7b7", -- menu text and keywords
+	cyan = "#98dab3", -- menu text and keywords
 
 	gray1 = "#303030", -- unfocused block lines
 	gray2 = "#4a4a4a", -- progress bar when loading (background)
@@ -25,17 +25,17 @@ local p = {
 	diffchangebg = "#2e2e40",
 	diffrembg = "#2c0c0c",
 
-	lift = "#182736", -- visual block
-	stl = "#0c1a28", -- unknown
+	lift = "#182736",
+	stl = "#0c1a28",
 
 	errbg = "#18141f",
 	warnbg = "#1f2526",
 	infobg = "#14202d",
 }
 
-p.fg = p.gray7 -- menu borders
+p.fg = p.gray7
 p.bg = p.black
-p.clbg = p.lift -- unknown
+p.clbg = p.lift
 
 local M = {}
 
@@ -78,7 +78,7 @@ function M.load(opts)
 		Cursor = { fg = p.bg, bg = p.fg },
 		TermCursor = { link = "Cursor" },
 		CursorColumn = { bg = p.lift },
-		CursorLine = { bg = p.clbg }, -- background of loading notif text & selection in menus
+		CursorLine = { bg = p.clbg },
 		CursorLineNr = { fg = p.pink },
 		lCursor = { fg = p.pink, bg = p.black },
 		EndOfBuffer = { fg = p.gray1, bg = p.bg },
@@ -92,16 +92,16 @@ function M.load(opts)
 		VisualNOS = { fg = p.black, bg = p.purple },
 
 		ErrorMsg = { fg = p.red },
-		MsgArea = { fg = p.beige }, -- progress bar text
+		MsgArea = { fg = p.beige },
 		ModeMsg = { fg = p.blue },
 		MoreMsg = { fg = p.green },
 		WarningMsg = { fg = p.yellow },
 
-		Conceal = { fg = p.gray4 }, -- unknown
+		Conceal = { fg = p.gray4 },
 		Directory = { fg = p.cyan },
 		Folded = { bg = p.lift },
 		LineNr = { fg = p.gray3 },
-		NonText = { fg = p.gray3 }, -- analyzer annotations & unselected folds
+		NonText = { fg = p.gray3 },
 		Whitespace = { fg = p.gray1 },
 
 		Pmenu = { bg = p.lift },
@@ -150,10 +150,9 @@ function M.load(opts)
 
 		Title = { fg = p.white },
 
-		-- syntax
-		Comment = { fg = p.gray3 }, -- comment symbols ("//") and info highlight
+		Comment = { fg = p.gray3 },
 
-		Constant = { fg = p.pink },
+		Constant = { fg = p.white },
 		String = { fg = p.pink },
 		Character = { link = "String" },
 		Number = { fg = p.white },
@@ -195,69 +194,48 @@ function M.load(opts)
 		Todo = { fg = p.blue, bg = p.black },
 		TodoFgTODO = { fg = p.blue },
 		TodoFgFIX = { fg = p.red },
-		TodoFgWARN = { fg = p.yellow }, --- XXX comments
+		TodoFgWARN = { fg = p.yellow },
 		TodoBgTODO = { fg = p.blue, bg = p.black },
 		TodoBgFIX = { fg = p.red, bg = p.black },
-		TodoBgWARN = { fg = p.yellow, bg = p.black }, --- XXX comments
+		TodoBgWARN = { fg = p.yellow, bg = p.black },
 
-		-- treesitter
-		-- ["@conceal"] = { link = "Conceal" },
-		-- ["@field"] = { fg = p.gray6, italic = true },
-		-- ["@function"] = { link = "Function" },
-		-- ["@function.builtin"] = { fg = p.aqua },
-		-- ["@parameter"] = { italic = true },
-		-- ["@punctuation.special"] = { fg = p.gray4 },
-		-- ["@tag.delimiter"] = { fg = p.gray4 },
-		-- ["@text.reference.vimdoc"] = { fg = p.pink },
-		-- ["@variable"] = { fg = p.gray7 },
-		-- ["@variable.builtin"] = { fg = p.aqua },
-
-		-- diags
 		DiagnosticOk = { fg = p.green },
 		DiagnosticInfo = { fg = p.gray5 },
 		DiagnosticHint = { fg = p.gray3 },
 		DiagnosticWarn = { fg = p.yellow },
-		DiagnosticError = { fg = p.red }, -- icon color in sidebar
+		DiagnosticError = { fg = p.red },
 		DiagnosticVirtualTextOk = { fg = p.green, bg = p.lift, italic = true },
 		DiagnosticVirtualTextInfo = { fg = p.gray5, bg = p.infobg, italic = true },
 		DiagnosticVirtualTextHint = { fg = p.gray3, italic = true },
 		DiagnosticVirtualTextWarn = { fg = p.yellow, bg = p.warnbg, italic = true },
 		DiagnosticVirtualTextError = { fg = p.red, bg = p.errbg, italic = true },
-		-- new stuff:
-		DiagnosticUnderlineHint = { sp = p.gray3, undercurl = true }, -- underline for a warning
+		DiagnosticUnderlineHint = { sp = p.gray3, undercurl = true },
 		DiagnosticUnderlineWarn = { sp = p.yellow, undercurl = true },
 		DiagnosticUnderlineError = { sp = p.red, undercurl = true },
 		DiagnosticUnnecessary = {},
 
 		LspInlayHint = { fg = p.gray4, italic = true },
 
-		SnacksIndent = { fg = p.gray1 }, -- unfocused indent lines
-		SnacksIndentScope = { fg = p.gray3 }, -- focused indent lines
+		SnacksIndent = { fg = p.gray1 },
+		SnacksIndentScope = { fg = p.gray2 },
 
 		-- git
-		-- sign hl type stuff
 		Added = { fg = p.green },
 		DiffAdded = { link = "Added" },
 		Removed = { fg = p.red },
 		DiffRemoved = { link = "Removed" },
-		Changed = { fg = p.pink },
+		Changed = { fg = p.blue },
 		DiffChanged = { link = "Changed" },
-
-		-- line hl type stuff
 
 		DiffAdd = { bg = p.diffaddbg },
 		DiffChange = { bg = p.diffchangebg },
 		DiffDelete = { bg = p.diffrembg },
 		DiffText = { bg = p.purple },
 
-		---------------------------------------------------- plugins
-
-		-- gitsigns
 		GitSignsAddInline = { link = "DiffText" },
 		GitSignsChangeInline = { link = "DiffText" },
 		GitSignsDeleteInline = { link = "DiffText" },
 
-		-- fugitive
 		fugitiveStagedHeading = { fg = p.aqua },
 		fugitiveStagedModifier = { fg = p.aqua },
 		fugitiveUnstagedHeading = { fg = p.pink },
@@ -266,7 +244,6 @@ function M.load(opts)
 		fugitiveUntrackedModifier = { fg = p.red },
 		gitHashAbbrev = { fg = p.yellow },
 
-		-- cmp
 		CmpItemKind = { fg = p.gray5 },
 		CmpItemKindClass = { link = "Type" },
 		CmpItemKindConstant = { link = "Constant" },
@@ -277,7 +254,6 @@ function M.load(opts)
 		CmpItemKindText = { link = "Comment" },
 		CmpItemKindVariable = { link = "Identifier" },
 
-		-- copilot
 		CopilotSuggestion = { fg = p.gray2, italic = true },
 	})
 end
