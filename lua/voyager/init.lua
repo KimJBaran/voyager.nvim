@@ -33,6 +33,36 @@ local p = {
 	infobg = "#14202d",
 }
 
+local colors = {
+	red = "#ff7e70",
+	violet = "#f7aea8",
+	cyan = "#98dab3",
+	aqua = "#d6ede4",
+	blue = "#63abda",
+	lightgrey = "#c6c6c6",
+	grey = "#222a2e",
+	terminal = "#121a1e",
+	black = "#080808",
+}
+
+local bubbles_theme = {
+	normal = {
+		a = { fg = colors.black, bg = colors.aqua },
+		b = { fg = colors.lightgrey, bg = colors.grey },
+		c = { fg = colors.lightgrey, bg = colors.terminal },
+	},
+
+	insert = { a = { fg = colors.black, bg = colors.cyan } },
+	visual = { a = { fg = colors.black, bg = colors.blue } },
+	replace = { a = { fg = colors.black, bg = colors.violet } },
+
+	inactive = {
+		a = { fg = colors.lightgrey, bg = colors.black },
+		b = { fg = colors.lightgrey, bg = colors.black },
+		c = { fg = colors.lightgrey },
+	},
+}
+
 p.fg = p.gray7
 p.bg = p.black
 p.clbg = p.lift
@@ -255,6 +285,36 @@ function M.load(opts)
 		CmpItemKindVariable = { link = "Identifier" },
 
 		CopilotSuggestion = { fg = p.gray2, italic = true },
+	})
+end
+
+function M.lualine()
+	require("lualine").setup({
+		options = {
+			theme = bubbles_theme,
+			component_separators = "",
+			section_separators = { left = "", right = "" },
+			globalstatus = vim.o.laststatus == 3,
+			disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
+		},
+		sections = {
+			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+			lualine_b = { "filename", "branch" },
+			lualine_c = {},
+			lualine_x = {},
+			lualine_y = { "filetype", "encoding", "diff" },
+			lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } },
+		},
+		inactive_sections = {
+			lualine_a = { "filename" },
+			lualine_b = {},
+			lualine_c = {},
+			lualine_x = {},
+			lualine_y = {},
+			lualine_z = { "location" },
+		},
+		tabline = {},
+		extensions = {},
 	})
 end
 
