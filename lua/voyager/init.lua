@@ -31,35 +31,28 @@ local p = {
 	errbg = "#18141f",
 	warnbg = "#1f2526",
 	infobg = "#14202d",
-}
 
-local colors = {
-	red = "#ff7e70",
-	violet = "#f7aea8",
-	cyan = "#98dab3",
-	aqua = "#d6ede4",
-	blue = "#63abda",
-	lightgrey = "#c6c6c6",
-	grey = "#222a2e",
-	terminal = "#121a1e",
-	black = "#080808",
+	inactivetext = "#c6c6c6",
+	invertedtext = "#080808",
+
+	lightbackground = "#222a2e",
 }
 
 local bubbles_theme = {
 	normal = {
-		a = { fg = colors.black, bg = colors.aqua },
-		b = { fg = colors.lightgrey, bg = colors.grey },
-		c = { fg = colors.lightgrey, bg = colors.terminal },
+		a = { fg = p.invertedtext, bg = p.aqua },
+		b = { fg = p.inactivetext, bg = p.lightbackground },
+		c = { fg = p.inactivetext, bg = p.black },
 	},
 
-	insert = { a = { fg = colors.black, bg = colors.cyan } },
-	visual = { a = { fg = colors.black, bg = colors.blue } },
-	replace = { a = { fg = colors.black, bg = colors.violet } },
+	insert = { a = { fg = p.invertedtext, bg = p.cyan } },
+	visual = { a = { fg = p.invertedtext, bg = p.blue } },
+	replace = { a = { fg = p.invertedtext, bg = p.pink } },
 
 	inactive = {
-		a = { fg = colors.lightgrey, bg = colors.black },
-		b = { fg = colors.lightgrey, bg = colors.black },
-		c = { fg = colors.lightgrey },
+		a = { fg = p.inactivetext, bg = p.invertedtext },
+		b = { fg = p.inactivetext, bg = p.invertedtext },
+		c = { fg = p.inactivetext },
 	},
 }
 
