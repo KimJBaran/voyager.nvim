@@ -1,12 +1,9 @@
 local p = {
-	green = "#84b253",
 	pink = "#f7aea8",
-	red = "#ff7e70", -- FIXME/ISSUE in comments
 	purple = "#4f345a",
 	beige = "#d1f6ab", -- function names
 	white = "#ebfcfb",
 	black = "#121a1e", -- border background
-	yellow = "#ffbd2e", -- over waring bg
 	blue = "#63abda",
 	aqua = "#d6ede4", -- struct names etc.
 
@@ -20,6 +17,10 @@ local p = {
 	gray6 = "#ecf5f0", -- struct properties
 	gray7 = "#f2f2f2", -- border colors, parameters, and variables
 	gray8 = "#e4e4e4", -- unknown
+
+	error = "#ff7e70",
+	warning = "#ffbd2e",
+	success = "#84b253",
 
 	diffaddbg = "#1a2d27",
 	diffchangebg = "#2e2e40",
@@ -114,11 +115,11 @@ function M.load(opts)
 		Visual = { bg = p.lift },
 		VisualNOS = { fg = p.black, bg = p.purple },
 
-		ErrorMsg = { fg = p.red },
+		ErrorMsg = { fg = p.error },
 		MsgArea = { fg = p.beige },
 		ModeMsg = { fg = p.blue },
-		MoreMsg = { fg = p.green },
-		WarningMsg = { fg = p.yellow },
+		MoreMsg = { fg = p.success },
+		WarningMsg = { fg = p.warning },
 
 		Conceal = { fg = p.gray4 },
 		Directory = { fg = p.cyan },
@@ -130,8 +131,8 @@ function M.load(opts)
 		Pmenu = { bg = p.lift },
 		PmenuExtra = { fg = p.gray4, bg = p.lift },
 		PmenuExtraSel = { fg = p.gray4, bg = p.lift },
-		PmenuKind = { fg = p.red },
-		PmenuKindSel = { fg = p.red },
+		PmenuKind = { fg = p.error },
+		PmenuKindSel = { fg = p.error },
 		PmenuSbar = {},
 		PmenuSel = { fg = p.aqua },
 		PmenuThumb = { bg = p.gray5 },
@@ -156,7 +157,7 @@ function M.load(opts)
 		dirOwner = { fg = p.gray4 },
 		dirPermissionGroup = { fg = p.beige },
 		dirPermissionOther = { fg = p.purple },
-		dirPermissionUser = { fg = p.green },
+		dirPermissionUser = { fg = p.success },
 		dirSize = { fg = p.beige },
 		dirSizeMod = { fg = p.pink },
 		dirTime = { fg = p.gray4 },
@@ -195,7 +196,7 @@ function M.load(opts)
 
 		PreProc = { fg = p.aqua },
 		Include = { link = "Keyword" },
-		Define = { fg = p.red },
+		Define = { fg = p.error },
 		Macro = { link = "PreProc" },
 		PreCondit = { link = "PreProc" },
 
@@ -213,28 +214,28 @@ function M.load(opts)
 
 		Underlined = { underline = true },
 		Ignore = {},
-		Error = { fg = p.red },
+		Error = { fg = p.error },
 		Todo = { fg = p.blue, bg = p.black },
 		TodoFgTODO = { fg = p.blue },
-		TodoFgFIX = { fg = p.red },
-		TodoFgWARN = { fg = p.yellow },
+		TodoFgFIX = { fg = p.error },
+		TodoFgWARN = { fg = p.warning },
 		TodoBgTODO = { fg = p.blue, bg = p.black },
-		TodoBgFIX = { fg = p.red, bg = p.black },
-		TodoBgWARN = { fg = p.yellow, bg = p.black },
+		TodoBgFIX = { fg = p.error, bg = p.black },
+		TodoBgWARN = { fg = p.warning, bg = p.black },
 
-		DiagnosticOk = { fg = p.green },
+		DiagnosticOk = { fg = p.success },
 		DiagnosticInfo = { fg = p.gray5 },
 		DiagnosticHint = { fg = p.gray3 },
-		DiagnosticWarn = { fg = p.yellow },
-		DiagnosticError = { fg = p.red },
-		DiagnosticVirtualTextOk = { fg = p.green, bg = p.lift, italic = true },
+		DiagnosticWarn = { fg = p.warning },
+		DiagnosticError = { fg = p.error },
+		DiagnosticVirtualTextOk = { fg = p.success, bg = p.lift, italic = true },
 		DiagnosticVirtualTextInfo = { fg = p.gray5, bg = p.infobg, italic = true },
 		DiagnosticVirtualTextHint = { fg = p.gray3, italic = true },
-		DiagnosticVirtualTextWarn = { fg = p.yellow, bg = p.warnbg, italic = true },
-		DiagnosticVirtualTextError = { fg = p.red, bg = p.errbg, italic = true },
+		DiagnosticVirtualTextWarn = { fg = p.warning, bg = p.warnbg, italic = true },
+		DiagnosticVirtualTextError = { fg = p.error, bg = p.errbg, italic = true },
 		DiagnosticUnderlineHint = { sp = p.gray3, undercurl = true },
-		DiagnosticUnderlineWarn = { sp = p.yellow, undercurl = true },
-		DiagnosticUnderlineError = { sp = p.red, undercurl = true },
+		DiagnosticUnderlineWarn = { sp = p.warning, undercurl = true },
+		DiagnosticUnderlineError = { sp = p.error, undercurl = true },
 		DiagnosticUnnecessary = {},
 
 		LspInlayHint = { fg = p.gray4, italic = true },
@@ -243,9 +244,9 @@ function M.load(opts)
 		SnacksIndentScope = { fg = p.gray2 },
 
 		-- git
-		Added = { fg = p.green },
+		Added = { fg = p.success },
 		DiffAdded = { link = "Added" },
-		Removed = { fg = p.red },
+		Removed = { fg = p.error },
 		DiffRemoved = { link = "Removed" },
 		Changed = { fg = p.blue },
 		DiffChanged = { link = "Changed" },
@@ -262,10 +263,10 @@ function M.load(opts)
 		fugitiveStagedHeading = { fg = p.aqua },
 		fugitiveStagedModifier = { fg = p.aqua },
 		fugitiveUnstagedHeading = { fg = p.pink },
-		fugitiveUnstagedModifier = { fg = p.red },
+		fugitiveUnstagedModifier = { fg = p.error },
 		fugitiveUntrackedHeading = { fg = p.pink },
-		fugitiveUntrackedModifier = { fg = p.red },
-		gitHashAbbrev = { fg = p.yellow },
+		fugitiveUntrackedModifier = { fg = p.error },
+		gitHashAbbrev = { fg = p.warning },
 
 		CmpItemKind = { fg = p.gray5 },
 		CmpItemKindClass = { link = "Type" },
