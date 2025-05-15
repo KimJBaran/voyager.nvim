@@ -4,6 +4,8 @@ local p = {
 	white = "#ebfcfb",
 	blue = "#63abda",
 
+	-- Content
+
 	keyword = "#98dab3", -- menu text and keywords
 	operator = "#d2d2d2", -- operators
 
@@ -14,31 +16,37 @@ local p = {
 	func = "#d1f6ab", -- function names
 	paramvar = "#f2f2f2", -- border colors, parameters, and variables
 
-	gray1 = "#303030", -- unfocused block lines
-	gray2 = "#4a4a4a", -- progress bar when loading (background)
-	gray3 = "#b0b0b0", -- dir prefix, UI labels, line numbers
-	gray8 = "#e4e4e4", -- unknown
+	-- Guidances
 
 	error = "#ff7e70",
 	warning = "#ffbd2e",
 	success = "#84b253",
 
+	errbg = "#18141f",
+	warnbg = "#1f2526",
+	infobg = "#14202d",
+
+	-- Change signals
+
 	diffaddbg = "#1a2d27",
 	diffchangebg = "#2e2e40",
 	diffrembg = "#2c0c0c",
 
+	-- Non-content related
+
+	gray1 = "#303030", -- unfocused block lines
+	gray2 = "#4a4a4a", -- progress bar when loading (background)
+	gray3 = "#b0b0b0", -- dir prefix, UI labels, line numbers
+	gray8 = "#e4e4e4", -- unknown
+
 	lift = "#182736",
 	stl = "#0c1a28",
-
-	errbg = "#18141f",
-	warnbg = "#1f2526",
-	infobg = "#14202d",
 
 	inactivetext = "#c6c6c6",
 	invertedtext = "#080808",
 
 	lightbackground = "#222a2e",
-	background = "#121a1e", -- border background
+	background = "#121a1e",
 }
 
 local bubbles_theme = {
