@@ -1,21 +1,22 @@
 local p = {
 	pink = "#f7aea8",
 	purple = "#4f345a",
-	beige = "#d1f6ab", -- function names
 	white = "#ebfcfb",
-	black = "#121a1e", -- border background
 	blue = "#63abda",
-	aqua = "#d6ede4", -- struct names etc.
 
-	cyan = "#98dab3", -- menu text and keywords
+	keyword = "#98dab3", -- menu text and keywords
+	operator = "#d2d2d2", -- operators
+
+	struct = "#d6ede4", -- struct names etc.
+	property = "#ecf5f0", -- struct properties
+	typeinf = "#b0b0b0", -- rust # symbol, analyzer types
+
+	func = "#d1f6ab", -- function names
+	paramvar = "#f2f2f2", -- border colors, parameters, and variables
 
 	gray1 = "#303030", -- unfocused block lines
 	gray2 = "#4a4a4a", -- progress bar when loading (background)
 	gray3 = "#b0b0b0", -- dir prefix, UI labels, line numbers
-	gray4 = "#b0b0b0", -- rust # symbol, analyzer types
-	gray5 = "#d2d2d2", -- operators
-	gray6 = "#ecf5f0", -- struct properties
-	gray7 = "#f2f2f2", -- border colors, parameters, and variables
 	gray8 = "#e4e4e4", -- unknown
 
 	error = "#ff7e70",
@@ -37,16 +38,17 @@ local p = {
 	invertedtext = "#080808",
 
 	lightbackground = "#222a2e",
+	background = "#121a1e", -- border background
 }
 
 local bubbles_theme = {
 	normal = {
-		a = { fg = p.invertedtext, bg = p.aqua },
+		a = { fg = p.invertedtext, bg = p.struct },
 		b = { fg = p.inactivetext, bg = p.lightbackground },
-		c = { fg = p.inactivetext, bg = p.black },
+		c = { fg = p.inactivetext, bg = p.background },
 	},
 
-	insert = { a = { fg = p.invertedtext, bg = p.cyan } },
+	insert = { a = { fg = p.invertedtext, bg = p.keyword } },
 	visual = { a = { fg = p.invertedtext, bg = p.blue } },
 	replace = { a = { fg = p.invertedtext, bg = p.pink } },
 
@@ -57,8 +59,8 @@ local bubbles_theme = {
 	},
 }
 
-p.fg = p.gray7
-p.bg = p.black
+p.fg = p.paramvar
+p.bg = p.background
 p.clbg = p.lift
 
 local M = {}
@@ -82,9 +84,9 @@ function M.load(opts)
 	if opts ~= nil then
 		if opts.transparent then
 			p.bg = "NONE"
-			p.clbg = p.black
+			p.clbg = p.background
 		else
-			p.bg = p.black
+			p.bg = p.background
 			p.clbg = p.lift
 		end
 	end
@@ -97,45 +99,45 @@ function M.load(opts)
 
 	apply({
 		ColorColumn = { bg = p.gray1 },
-		CurSearch = { fg = p.aqua, reverse = true },
+		CurSearch = { fg = p.struct, reverse = true },
 		FoldColumn = { fg = p.gray3 },
 		Cursor = { fg = p.bg, bg = p.fg },
 		TermCursor = { link = "Cursor" },
 		CursorColumn = { bg = p.lift },
 		CursorLine = { bg = p.clbg },
 		CursorLineNr = { fg = p.pink },
-		lCursor = { fg = p.pink, bg = p.black },
+		lCursor = { fg = p.pink, bg = p.background },
 		EndOfBuffer = { fg = p.gray1, bg = p.bg },
 		IncSearch = { reverse = true },
 		MatchParen = { bg = p.gray2 },
-		Substitute = { fg = p.black, bg = p.pink },
+		Substitute = { fg = p.background, bg = p.pink },
 
 		Normal = { fg = p.fg, bg = p.bg },
 		NormalFloat = { fg = p.fg, bg = p.bg },
 		Visual = { bg = p.lift },
-		VisualNOS = { fg = p.black, bg = p.purple },
+		VisualNOS = { fg = p.background, bg = p.purple },
 
 		ErrorMsg = { fg = p.error },
-		MsgArea = { fg = p.beige },
+		MsgArea = { fg = p.func },
 		ModeMsg = { fg = p.blue },
 		MoreMsg = { fg = p.success },
 		WarningMsg = { fg = p.warning },
 
-		Conceal = { fg = p.gray4 },
-		Directory = { fg = p.cyan },
+		Conceal = { fg = p.typeinf },
+		Directory = { fg = p.keyword },
 		Folded = { bg = p.lift },
 		LineNr = { fg = p.gray3 },
 		NonText = { fg = p.gray3 },
 		Whitespace = { fg = p.gray1 },
 
 		Pmenu = { bg = p.lift },
-		PmenuExtra = { fg = p.gray4, bg = p.lift },
-		PmenuExtraSel = { fg = p.gray4, bg = p.lift },
+		PmenuExtra = { fg = p.typeinf, bg = p.lift },
+		PmenuExtraSel = { fg = p.typeinf, bg = p.lift },
 		PmenuKind = { fg = p.error },
 		PmenuKindSel = { fg = p.error },
 		PmenuSbar = {},
-		PmenuSel = { fg = p.aqua },
-		PmenuThumb = { bg = p.gray5 },
+		PmenuSel = { fg = p.struct },
+		PmenuThumb = { bg = p.operator },
 
 		Question = { fg = p.white },
 		QuickFixLine = { bg = p.diffchangebg },
@@ -146,31 +148,31 @@ function M.load(opts)
 		SpellCap = {},
 		SpellLocal = {},
 		SpellRare = {},
-		ToolbarButton = { fg = p.black, bg = p.white },
-		WildMenu = { fg = p.black, bg = p.beige },
+		ToolbarButton = { fg = p.background, bg = p.white },
+		WildMenu = { fg = p.background, bg = p.func },
 
 		debugBreakpoint = { fg = p.purple },
 		debugPC = { fg = p.blue },
 
 		diffSubname = { fg = p.pink },
-		dirGroup = { fg = p.gray4 },
-		dirOwner = { fg = p.gray4 },
-		dirPermissionGroup = { fg = p.beige },
+		dirGroup = { fg = p.typeinf },
+		dirOwner = { fg = p.typeinf },
+		dirPermissionGroup = { fg = p.func },
 		dirPermissionOther = { fg = p.purple },
 		dirPermissionUser = { fg = p.success },
-		dirSize = { fg = p.beige },
+		dirSize = { fg = p.func },
 		dirSizeMod = { fg = p.pink },
-		dirTime = { fg = p.gray4 },
+		dirTime = { fg = p.typeinf },
 		dirType = { fg = p.pink },
 
 		StatusLine = { fg = p.fg, bg = p.stl },
-		StatusLineNC = { fg = p.gray4, bg = p.bg },
+		StatusLineNC = { fg = p.typeinf, bg = p.bg },
 		TabLine = { fg = p.fg, bg = p.bg },
 		TabLineFill = { bg = p.bg },
-		TabLineSel = { fg = p.white, bg = p.black },
+		TabLineSel = { fg = p.white, bg = p.background },
 		WinBar = { fg = p.fg },
-		WinBarNC = { fg = p.gray4 },
-		WinSeparator = { fg = p.gray3, bg = p.black },
+		WinBarNC = { fg = p.typeinf },
+		WinSeparator = { fg = p.gray3, bg = p.background },
 
 		Title = { fg = p.white },
 
@@ -183,53 +185,53 @@ function M.load(opts)
 		Boolean = { fg = p.white },
 		Float = { fg = p.white },
 
-		Identifier = { fg = p.gray6 },
-		Function = { fg = p.beige },
+		Identifier = { fg = p.property },
+		Function = { fg = p.func },
 
-		Statement = { fg = p.aqua },
+		Statement = { fg = p.struct },
 		Conditional = { link = "Keyword" },
 		Repeat = { link = "Keyword" },
-		Label = { fg = p.gray6 },
-		Operator = { fg = p.gray5 },
-		Keyword = { fg = p.cyan },
+		Label = { fg = p.property },
+		Operator = { fg = p.operator },
+		Keyword = { fg = p.keyword },
 		Exception = { link = "Keyword" },
 
-		PreProc = { fg = p.aqua },
+		PreProc = { fg = p.struct },
 		Include = { link = "Keyword" },
 		Define = { fg = p.error },
 		Macro = { link = "PreProc" },
 		PreCondit = { link = "PreProc" },
 
-		Type = { fg = p.aqua },
+		Type = { fg = p.struct },
 		StorageClass = { link = "Type" },
 		Structure = { link = "Type" },
 		Typedef = { link = "Type" },
 
-		Special = { fg = p.cyan }, -- , italic = true },
+		Special = { fg = p.keyword }, -- , italic = true },
 		SpecialChar = { link = "Special" },
 		Tag = { link = "Special" },
-		Delimiter = { fg = p.cyan },
+		Delimiter = { fg = p.keyword },
 		SpecialComment = { link = "Special" },
 		Debug = { link = "Special" },
 
 		Underlined = { underline = true },
 		Ignore = {},
 		Error = { fg = p.error },
-		Todo = { fg = p.blue, bg = p.black },
+		Todo = { fg = p.blue, bg = p.background },
 		TodoFgTODO = { fg = p.blue },
 		TodoFgFIX = { fg = p.error },
 		TodoFgWARN = { fg = p.warning },
-		TodoBgTODO = { fg = p.blue, bg = p.black },
-		TodoBgFIX = { fg = p.error, bg = p.black },
-		TodoBgWARN = { fg = p.warning, bg = p.black },
+		TodoBgTODO = { fg = p.blue, bg = p.background },
+		TodoBgFIX = { fg = p.error, bg = p.background },
+		TodoBgWARN = { fg = p.warning, bg = p.background },
 
 		DiagnosticOk = { fg = p.success },
-		DiagnosticInfo = { fg = p.gray5 },
+		DiagnosticInfo = { fg = p.operator },
 		DiagnosticHint = { fg = p.gray3 },
 		DiagnosticWarn = { fg = p.warning },
 		DiagnosticError = { fg = p.error },
 		DiagnosticVirtualTextOk = { fg = p.success, bg = p.lift, italic = true },
-		DiagnosticVirtualTextInfo = { fg = p.gray5, bg = p.infobg, italic = true },
+		DiagnosticVirtualTextInfo = { fg = p.operator, bg = p.infobg, italic = true },
 		DiagnosticVirtualTextHint = { fg = p.gray3, italic = true },
 		DiagnosticVirtualTextWarn = { fg = p.warning, bg = p.warnbg, italic = true },
 		DiagnosticVirtualTextError = { fg = p.error, bg = p.errbg, italic = true },
@@ -238,7 +240,7 @@ function M.load(opts)
 		DiagnosticUnderlineError = { sp = p.error, undercurl = true },
 		DiagnosticUnnecessary = {},
 
-		LspInlayHint = { fg = p.gray4, italic = true },
+		LspInlayHint = { fg = p.typeinf, italic = true },
 
 		SnacksIndent = { fg = p.gray1 },
 		SnacksIndentScope = { fg = p.gray2 },
@@ -260,15 +262,15 @@ function M.load(opts)
 		GitSignsChangeInline = { link = "DiffText" },
 		GitSignsDeleteInline = { link = "DiffText" },
 
-		fugitiveStagedHeading = { fg = p.aqua },
-		fugitiveStagedModifier = { fg = p.aqua },
+		fugitiveStagedHeading = { fg = p.struct },
+		fugitiveStagedModifier = { fg = p.struct },
 		fugitiveUnstagedHeading = { fg = p.pink },
 		fugitiveUnstagedModifier = { fg = p.error },
 		fugitiveUntrackedHeading = { fg = p.pink },
 		fugitiveUntrackedModifier = { fg = p.error },
 		gitHashAbbrev = { fg = p.warning },
 
-		CmpItemKind = { fg = p.gray5 },
+		CmpItemKind = { fg = p.operator },
 		CmpItemKindClass = { link = "Type" },
 		CmpItemKindConstant = { link = "Constant" },
 		CmpItemKindFunction = { link = "Function" },
