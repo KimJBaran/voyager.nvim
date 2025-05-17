@@ -6,15 +6,15 @@ local p = {
 
 	-- Content
 
-	keyword = "#98dab3", -- menu text and keywords
-	operator = "#d2d2d2", -- operators
+	keyword = "#98dab3", -- Includes menu text in LazyVim.
+	operator = "#d2d2d2",
 
-	struct = "#d6ede4", -- struct names etc.
-	property = "#ecf5f0", -- struct properties
-	typeinf = "#b0b0b0", -- rust # symbol, analyzer types
+	struct = "#d6ede4",
+	property = "#ecf5f0",
+	typeinf = "#b0b0b0", -- Inferred types. For example, through rust-analyzer.
 
-	func = "#d1f6ab", -- function names
-	paramvar = "#f2f2f2", -- border colors, parameters, and variables
+	func = "#d1f6ab",
+	paramvar = "#f2f2f2", -- Parameters & variables. Includes border color in LazyVim.
 
 	-- Guidances
 
@@ -26,7 +26,7 @@ local p = {
 	warnbg = "#1f2526",
 	infobg = "#14202d",
 
-	-- Change signals
+	-- Version control
 
 	diffaddbg = "#1a2d27",
 	diffchangebg = "#2e2e40",
@@ -34,17 +34,17 @@ local p = {
 
 	-- Non-content related
 
-	gray1 = "#303030", -- unfocused block lines
-	gray2 = "#4a4a4a", -- progress bar when loading (background)
-	gray3 = "#b0b0b0", -- dir prefix, UI labels, line numbers
-	gray8 = "#e4e4e4", -- unknown
+	gray1 = "#303030", -- Unfocused vertical block lines.
+	gray2 = "#4a4a4a", -- Progress bar background when loading, saving, etc.
+	gray3 = "#b0b0b0", -- Directory prefixes, UI labels, line numbers, etc.
+	gray8 = "#e4e4e4",
 
-	lift = "#182736",
 	stl = "#0c1a28",
 
 	inactivetext = "#c6c6c6",
 	invertedtext = "#080808",
 
+	highlightbackground = "#182736",
 	lightbackground = "#222a2e",
 	background = "#121a1e",
 }
@@ -69,7 +69,7 @@ local bubbles_theme = {
 
 p.fg = p.paramvar
 p.bg = p.background
-p.clbg = p.lift
+p.clbg = p.highlightbackground
 
 local M = {}
 
@@ -95,7 +95,7 @@ function M.load(opts)
 			p.clbg = p.background
 		else
 			p.bg = p.background
-			p.clbg = p.lift
+			p.clbg = p.highlightbackground
 		end
 	end
 
@@ -111,7 +111,7 @@ function M.load(opts)
 		FoldColumn = { fg = p.gray3 },
 		Cursor = { fg = p.bg, bg = p.fg },
 		TermCursor = { link = "Cursor" },
-		CursorColumn = { bg = p.lift },
+		CursorColumn = { bg = p.highlightbackground },
 		CursorLine = { bg = p.clbg },
 		CursorLineNr = { fg = p.pink },
 		lCursor = { fg = p.pink, bg = p.background },
@@ -122,7 +122,7 @@ function M.load(opts)
 
 		Normal = { fg = p.fg, bg = p.bg },
 		NormalFloat = { fg = p.fg, bg = p.bg },
-		Visual = { bg = p.lift },
+		Visual = { bg = p.highlightbackground },
 		VisualNOS = { fg = p.background, bg = p.purple },
 
 		ErrorMsg = { fg = p.error },
@@ -133,14 +133,14 @@ function M.load(opts)
 
 		Conceal = { fg = p.typeinf },
 		Directory = { fg = p.keyword },
-		Folded = { bg = p.lift },
+		Folded = { bg = p.highlightbackground },
 		LineNr = { fg = p.gray3 },
 		NonText = { fg = p.gray3 },
 		Whitespace = { fg = p.gray1 },
 
-		Pmenu = { bg = p.lift },
-		PmenuExtra = { fg = p.typeinf, bg = p.lift },
-		PmenuExtraSel = { fg = p.typeinf, bg = p.lift },
+		Pmenu = { bg = p.highlightbackground },
+		PmenuExtra = { fg = p.typeinf, bg = p.highlightbackground },
+		PmenuExtraSel = { fg = p.typeinf, bg = p.highlightbackground },
 		PmenuKind = { fg = p.error },
 		PmenuKindSel = { fg = p.error },
 		PmenuSbar = {},
@@ -238,7 +238,7 @@ function M.load(opts)
 		DiagnosticHint = { fg = p.gray3 },
 		DiagnosticWarn = { fg = p.warning },
 		DiagnosticError = { fg = p.error },
-		DiagnosticVirtualTextOk = { fg = p.success, bg = p.lift, italic = true },
+		DiagnosticVirtualTextOk = { fg = p.success, bg = p.highlightbackground, italic = true },
 		DiagnosticVirtualTextInfo = { fg = p.operator, bg = p.infobg, italic = true },
 		DiagnosticVirtualTextHint = { fg = p.gray3, italic = true },
 		DiagnosticVirtualTextWarn = { fg = p.warning, bg = p.warnbg, italic = true },
