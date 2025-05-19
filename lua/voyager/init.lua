@@ -187,6 +187,7 @@ function M.load(opts)
 		Comment = { fg = p.gray3 },
 
 		Constant = { fg = p.white },
+		vimNumber = { fg = p.white },
 		String = { fg = p.pink },
 		Character = { link = "String" },
 		Number = { fg = p.white },
@@ -195,8 +196,10 @@ function M.load(opts)
 
 		Identifier = { fg = p.property },
 		Function = { fg = p.func },
+		vimFunction = { fg = p.func },
+		vimVar = { fg = p.paramvar },
 
-		Statement = { fg = p.struct },
+		Statement = { fg = p.keyword },
 		Conditional = { link = "Keyword" },
 		Repeat = { link = "Keyword" },
 		Label = { fg = p.property },
