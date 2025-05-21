@@ -39,8 +39,6 @@ local p = {
 	gray3 = "#b0b0b0", -- Directory prefixes, UI labels, line numbers, etc.
 	gray8 = "#e4e4e4",
 
-	stl = "#0c1a28",
-
 	inactivetext = "#c6c6c6",
 	invertedtext = "#080808",
 
@@ -173,7 +171,7 @@ function M.load(opts)
 		dirTime = { fg = p.typeinf },
 		dirType = { fg = p.pink },
 
-		StatusLine = { fg = p.fg, bg = p.stl },
+		StatusLine = { fg = p.inactivetext, bg = p.lightbackground },
 		StatusLineNC = { fg = p.typeinf, bg = p.bg },
 		TabLine = { fg = p.fg, bg = p.bg },
 		TabLineFill = { bg = p.bg },
@@ -197,6 +195,7 @@ function M.load(opts)
 		Identifier = { fg = p.property },
 		Function = { fg = p.func },
 		vimFunction = { fg = p.func },
+		vimFuncMod = { fg = p.func },
 		vimVar = { fg = p.paramvar },
 
 		Statement = { fg = p.keyword },
