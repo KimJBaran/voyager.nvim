@@ -255,7 +255,7 @@ function M.load(opts)
 		SnacksIndent = { fg = p.gray1 },
 		SnacksIndentScope = { fg = p.gray2 },
 
-		NoicePopup = { fg = p.background, bg = p.lightbackground },
+		NoicePopup = { fg = p.fg, bg = p.lightbackground },
 
 		-- git
 		Added = { fg = p.success },
