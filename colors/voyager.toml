@@ -1,0 +1,46 @@
+[colors]
+foreground = "#ecf5f0"
+background = "#121a1e"
+
+cursor_bg = "#d1f6ab"
+cursor_fg = "#080808"
+cursor_border = "#d1f6ab"
+
+selection_fg = "#ecf5f0"
+selection_bg = "#182736"
+
+scrollbar_thumb = "#4a4a4a" # Unsure.
+split = "#303030"
+
+compose_cursor = "#ffbd2e"
+
+quick_select_label_fg = { Color = "#f7aea8" }
+quick_select_label_bg = { Color = "#182736" }
+quick_select_match_fg = { Color = "#ecf5f0" }
+quick_select_match_bg = { Color = "#182736" }
+
+ansi = [
+  "#121a1e", # `htop` selection text foreground.
+  "#ff7e70", # `htop` bar (red).
+  "#84b253",
+  "#ffbd2e",
+  "#63abda", # `ls` dir colors.
+  "#f7aea8",
+  "#98dab3", # `htop` selection, key text background, Joplin links.
+  "#e4e4e4",
+]
+
+brights = [
+  "#b0b0b0", # `htop` dim text.
+  "#ff7e70", # `grep` highlights.
+  "#d1f6ab",
+  "#ffbd2e",
+  "#63abda", # `tree` dir colors.
+  "#f7aea8",
+  "#d6ede4",
+  "#ebfcfb",
+]
+
+[metadata]
+name = "Voyager"
+aliases = []
