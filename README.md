@@ -19,7 +19,7 @@ Create a new plugin (for example, `~/.config/nvim/lua/plugins/themes.lua`) with 
 ```lua
 return {
   {
-    "your-local-path/voyager.nvim",
+    "kimjbaran/voyager.nvim",
     lazy = false,
   },
   {
