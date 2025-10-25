@@ -12,7 +12,7 @@ Integration support:
 
 ## Installation
 
-### LazyVim
+### [LazyVim](https://www.lazyvim.org/)
 
 Create a new plugin (for example, `~/.config/nvim/lua/plugins/themes.lua`) with the following contents:
 
@@ -37,6 +37,39 @@ To load the lualine as shown in the exammples, add the following to `~/.config/n
 
 ```
 require("voyager").lualine()
+```
+
+### Neovim
+
+Since [packer.nvim](https://github.com/wbthomason/packer.nvim) is currently not being maintained, the recommendation is to install the Voyager theme using [lazy.nvim](https://github.com/folke/lazy.nvim).
+
+```bash
+git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
+mkdir -p ~/.config/nvim/lua/plugins
+```
+
+Create a plugin `~/.config/nvim/lua/plugins/colorscheme.lua`:
+
+```lua
+return {
+  {
+    "kimjbaran/voyager.nvim",
+    lazy = false,
+    config = function()
+      vim.cmd.colorscheme("voyager")
+      -- With transparent background:
+      -- vim.cmd.colorscheme("voyager-transparent")
+    end,
+  },
+}
+```
+
+Either create or add to `~/.config/nvim/init.lua`:
+
+```lua
+vim.opt.rtp:prepend("~/.local/share/nvim/lazy/lazy.nvim")
+
+require("lazy").setup("plugins")
 ```
 
 ### WezTerm
