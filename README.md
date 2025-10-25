@@ -12,12 +12,14 @@ Integration support:
 
 ## Installation
 
-LazyVim: create a new plugin (for example, `~/.config/nvim/lua/plugins/themes.lua`) with the following contents:
+### LazyVim
 
-```
+Create a new plugin (for example, `~/.config/nvim/lua/plugins/themes.lua`) with the following contents:
+
+```lua
 return {
   {
-    "kimjbaran/voyager.nvim",
+    "your-local-path/voyager.nvim",
     lazy = false,
   },
   {
@@ -35,6 +37,16 @@ To load the lualine as shown in the exammples, add the following to `~/.config/n
 
 ```
 require("voyager").lualine()
+```
+
+### WezTerm
+
+Add the path to this repos `colors` directory and set the theme as `Voyager` in your `.wezterm.lua` config:
+
+```lua
+config.color_scheme_dirs = { "your-local-path/voyager.nvim/colors" }
+
+config.color_scheme = "Voyager"
 ```
 
 ## Examples
